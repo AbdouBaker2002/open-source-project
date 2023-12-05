@@ -1,0 +1,150 @@
+* {
+    margin    : 0px;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 90%;
+  }
+
+
+  
+/* start home page */
+
+.home {
+    width        : 100%;
+    margin-bottom: 250px;
+  }
+  
+  .home .navbar .container-fluid img {
+    width      : 70px;
+    height     : 50px;
+    margin-left: 80px;
+    cursor     : pointer;
+  }
+  
+  nav {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .navbar ul {
+    margin-left    : 180px;
+    list-style-type: none;
+  }
+  
+  .navbar ul li a:hover {
+    color: #fac031;
+  }
+  
+  .navbar-nav .nav-link.active:hover {
+    color: #fac031;
+  }
+  
+  .nav-link {
+    position   : relative;
+    color      : black;
+    font-size  : 18px;
+    margin-left: 10px;
+  }
+  
+  .nav-link::after {
+    content         : "";
+    width           : 0px;
+    height          : 2px;
+    background-color: #fac031;
+    position        : absolute;
+    left            : 10px;
+    top             : 80%;
+  }
+  
+  .nav-link:hover::after {
+    width     : 70%;
+    transition: 0.5s;
+  }
+  
+  .nav-item1 {
+    margin-left: 10px;
+    margin-top : 9px;
+  }
+  
+  .nav-item1 a {
+    text-decoration: none;
+    color          : black;
+    font-size      : 18px;
+  }
+  
+  .nav_icon i {
+    position    : relative;
+    left        : 150px;
+    padding-left: 15px;
+    cursor      : pointer;
+    font-size   : 18px;
+  }
+  
+  .nav_icon i:hover {
+    color     : #fac031;
+    transition: 0.5s;
+  }
+  
+  .home .container h1 {
+    font-size  : 60px;
+    position   : relative;
+    top        : 150px;
+    font-weight: 700;
+  }
+  
+  .text {
+    color      : #fac031;
+    font-family: 'Alkatra', cursive;
+    font-size  : 70px;
+  }
+  
+  .home .container p {
+    position : relative;
+    top      : 200px;
+    left     : 50px;
+    font-size: 17px;
+  }
+  
+  .home_btn {
+    position        : relative;
+    top             : 220px;
+    left            : 50px;
+    padding         : 5px 30px;
+    background-color: black;
+    border          : transparent;
+  }
+  
+  .home_btn a {
+    text-decoration: none;
+    font-size      : 17px;
+    color          : white;
+  }
+  
+  .home_btn i {
+    color: white;
+  }
+  
+  .home_btn:hover i {
+    transform : translateX(7px);
+    transition: 0.7s;
+  }
+  
+  .home_btn:hover{
+    background-color: #fac031;
+    transition: 0.5s;
+  }
+  
+  .arrow_up {
+    font-size: 50px;
+    color    : #fac031;
+    z-index: 99999999999;
+  }
+  
+  .home_img {
+    position: relative;
+    top     : 120px;
+  }
+  
+  
+  /* end home page */
