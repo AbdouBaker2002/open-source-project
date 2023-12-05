@@ -1,0 +1,264 @@
+* {
+    margin    : 0px;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 90%;
+  }
+
+
+  
+/* start home page */
+
+.home {
+    width        : 100%;
+    margin-bottom: 250px;
+  }
+  
+  .home .navbar .container-fluid img {
+    width      : 70px;
+    height     : 50px;
+    margin-left: 80px;
+    cursor     : pointer;
+  }
+  
+  nav {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .navbar ul {
+    margin-left    : 180px;
+    list-style-type: none;
+  }
+  
+  .navbar ul li a:hover {
+    color: #fac031;
+  }
+  
+  .navbar-nav .nav-link.active:hover {
+    color: #fac031;
+  }
+  
+  .nav-link {
+    position   : relative;
+    color      : black;
+    font-size  : 18px;
+    margin-left: 10px;
+  }
+  
+  .nav-link::after {
+    content         : "";
+    width           : 0px;
+    height          : 2px;
+    background-color: #fac031;
+    position        : absolute;
+    left            : 10px;
+    top             : 80%;
+  }
+  
+  .nav-link:hover::after {
+    width     : 70%;
+    transition: 0.5s;
+  }
+  
+  .nav-item1 {
+    margin-left: 10px;
+    margin-top : 9px;
+  }
+  
+  .nav-item1 a {
+    text-decoration: none;
+    color          : black;
+    font-size      : 18px;
+  }
+  
+  .nav_icon i {
+    position    : relative;
+    left        : 150px;
+    padding-left: 15px;
+    cursor      : pointer;
+    font-size   : 18px;
+  }
+  
+  .nav_icon i:hover {
+    color     : #fac031;
+    transition: 0.5s;
+  }
+  
+  .home .container h1 {
+    font-size  : 60px;
+    position   : relative;
+    top        : 150px;
+    font-weight: 700;
+  }
+  
+  .text {
+    color      : #fac031;
+    font-family: 'Alkatra', cursive;
+    font-size  : 70px;
+  }
+  
+  .home .container p {
+    position : relative;
+    top      : 200px;
+    left     : 50px;
+    font-size: 17px;
+  }
+  
+  .home_btn {
+    position        : relative;
+    top             : 220px;
+    left            : 50px;
+    padding         : 5px 30px;
+    background-color: black;
+    border          : transparent;
+  }
+  
+  .home_btn a {
+    text-decoration: none;
+    font-size      : 17px;
+    color          : white;
+  }
+  
+  .home_btn i {
+    color: white;
+  }
+  
+  .home_btn:hover i {
+    transform : translateX(7px);
+    transition: 0.7s;
+  }
+  
+  .home_btn:hover{
+    background-color: #fac031;
+    transition: 0.5s;
+  }
+  
+  .arrow_up {
+    font-size: 50px;
+    color    : #fac031;
+    z-index: 99999999999;
+  }
+  
+  .home_img {
+    position: relative;
+    top     : 120px;
+  }
+  
+  
+  /* end home page */
+
+
+
+  /* start team page */
+
+.team {
+  padding-bottom     : 60px;
+  padding-top     : 60px;
+  width              : 100%;
+  background-image   : url(../image/bg1.jpg);
+  background-position: center;
+  background-size    : cover;
+}
+
+.team .team_text {
+  font-size  : 55px;
+  font-weight: 700px;
+  font-family: 'Alkatra', cursive;
+  color      : #fac031;
+  position   : relative;
+}
+
+.team .team_text::after {
+  content         : "";
+  width           : 115px;
+  height          : 2px;
+  background-color: #fac031;
+  position        : absolute;
+  top             : 85%;
+  left            : 10px;
+}
+
+.team h1 {
+  font-size     : 60px;
+  font-weight   : 500px;
+  padding-bottom: 50px;
+  text-align    : center;
+}
+
+.team img {
+  width        : 220px;
+  height       : 200px;
+  border-radius: 50%;
+  cursor       : pointer;
+  box-shadow   : 0 0 8px rgba(0, 0, 0, 0.5);
+  transition   : 0.4s;
+}
+
+.team .team_box .profile {
+  width          : 250px;
+  height         : 300px;
+  border-radius  : 50%;
+  margin         : 0 15px;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  position       : relative;
+  box-shadow     : 0 0 8px rgba(0, 0, 0, 0.5);
+  transition     : 0.4s;
+}
+
+.team .team_box .profile .team_info {
+  position  : absolute;
+  text-align: center;
+  top       : 25%;
+  transition: 0.4s;
+  opacity   : 0;
+}
+
+.team .team_box .profile .team_info .name {
+  color        : #fac031;
+  margin-bottom: 15px;
+}
+
+.team .team_box .profile .team_info .team_icon i {
+  margin    : 10px 5px 5px 0;
+  cursor    : pointer;
+  transition: 0.3s;
+}
+
+.team .team_box .profile:hover {
+  border-radius: 20px;
+  height       : 380px;
+}
+
+.team .team_box .profile:hover img {
+  border-radius: 20px;
+  margin-top   : -230px;
+}
+
+.team .team_box .profile:hover .team_info {
+  top    : 60%;
+  opacity: 1;
+}
+
+.team .team_box .profile .team_info .team_icon i:hover {
+  color: #fac031;
+}
+
+/* end team page */
+
+/* start copy-right page */
+
+.copy_right {
+  width           : 100%;
+  background-color: #eeeeee;
+  padding-bottom  : 10px;
+}
+
+.copy_text {
+  color: #fac031;
+}
+
+/* end copy-right page */
