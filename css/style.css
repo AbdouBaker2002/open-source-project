@@ -261,4 +261,67 @@
   color: #fac031;
 }
 
-/* end copy-right page */
+
+.menu {
+  width        : 100%;
+  margin-bottom: 150px;
+}
+
+.menu h1 {
+  margin-bottom: 25px;
+  font-size    : 55px;
+  font-weight  : 700;
+}
+
+.menu_text {
+  color      : #fac031;
+  font-family: 'Alkatra', cursive;
+  font-size  : 60px;
+  position   : relative;
+  font-weight: 500;
+}
+
+.menu .menu_text::after {
+  content         : "";
+  width           : 145px;
+  height          : 2px;
+  background-color: #fac031;
+  position        : absolute;
+  top             : 87%;
+  left            : 0;
+}
+
+.card-img-top {
+  width     : 255px;
+  height    : 270px;
+  transition: transform 1s;
+  transform : skew();
+}
+
+.card-img-top:hover {
+  transform: scale(1.2);
+}
+
+.card-title {
+  font-size: 25px;
+  color    : #fac031;
+}
+
+.menu .card-body .fa-solid {
+  color: #fac031;
+}
+
+.menu_btn {
+  background-color: black;
+  border          : transparent;
+  padding         : 5px 35px;
+}
+
+.menu_btn:hover{
+  background-color: #fac031;
+  transition: 0.5s;
+}
+.card-body .menu_btn a {
+  text-decoration: none;
+  color          : white;
+}
