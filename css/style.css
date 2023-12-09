@@ -518,3 +518,82 @@
 }
 
 /* end register page */
+/* start review page */
+
+.review {
+  width        : 100%;
+  margin-bottom: 150px;
+}
+
+.review h1 {
+  font-size     : 55px;
+  font-weight   : 700;
+  padding-bottom: 50px;
+  text-align    : center;
+}
+
+.review .review_text {
+  color      : #fac031;
+  font-size  : 60px;
+  font-family: 'Alkatra', cursive;
+  position   : relative;
+  font-weight: 500;
+}
+
+.review .review_text::after {
+  content         : "";
+  width           : 180px;
+  height          : 2px;
+  background-color: #fac031;
+  position        : absolute;
+  top             : 83%;
+  left            : 0px;
+}
+
+.review p {
+  transition: 0.3s;
+}
+
+.review .review_icon {
+  color     : #fac031;
+  transition: 0.3s;
+}
+
+.review_img {
+  transition: 0.3s;
+}
+
+.review .review_social i:hover {
+  color: #fac031;
+}
+
+.review .review_box .card .card-body .review_social i {
+  margin    : 5px 1px;
+  font-size : 15px;
+  opacity   : 0;
+  cursor    : pointer;
+  transition: 0.3s;
+}
+
+.review .review_box .card:hover .card-body .review_social i {
+  opacity  : 1;
+  transform: translateY(-8px);
+}
+
+.review .review_box .card:hover .review_img {
+  transform: translateY(-60px);
+}
+
+.review .review_box .card:hover .card-body .review_icon {
+  transform: translateY(-30px);
+}
+
+.review .review_box .card:hover .card-body .name {
+  transform: translateY(-50px);
+}
+
+.review .review_box .card:hover .card-body p {
+  margin-top: 5px;
+}
+
+/* end review page */
