@@ -597,3 +597,59 @@
 }
 
 /* end review page */
+/* start contact us page */
+
+.contact {
+  margin-bottom      : 50px;
+  width              : 100%;
+  background-image   : url(../image/bg2.jpg);
+  background-position: center;
+  background-size    : cover;
+}
+
+.contact .contact_text {
+  font-size  : 60px;
+  font-weight: 500px;
+  font-family: 'Alkatra', cursive;
+  color      : #fac031;
+  position   : relative;
+}
+
+.contact .contact_text::after {
+  content         : "";
+  width           : 190px;
+  height          : 2px;
+  background-color: #fac031;
+  position        : absolute;
+  top             : 75%;
+  left            : 0px;
+}
+.contact h1 {
+  font-size     : 55px;
+  font-weight   : 700px;
+  text-align    : center;
+  bottom: 50px;
+  position: relative;
+}
+
+.contact .form-control {
+  background-color: #eeeeee;
+}
+
+.contact_btn {
+  background-color: black;
+  border          : transparent;
+  padding         : 5px 25px;
+}
+
+.contact_btn:hover{
+  background-color: #fac031;
+  transition: 0.5s;
+}
+
+.contact a {
+  text-decoration: none;
+  color          : white;
+}
+
+/* end contact us page */
