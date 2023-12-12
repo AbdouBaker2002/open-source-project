@@ -653,3 +653,38 @@
 }
 
 /* end contact us page */
+
+/* start about page */
+
+.about {
+  width        : 100%;
+  margin-bottom: 150px;
+}
+
+.about .about_text {
+  color      : #fac031;
+  font-size  : 60px;
+  font-family: 'Alkatra', cursive;
+  position   : relative;
+}
+
+.about .about_text::after {
+  content         : "";
+  width           : 170px;
+  height          : 2px;
+  background-color: #fac031;
+  position        : absolute;
+  top             : 90%;
+  left            : 0px;
+}
+
+.about h1 {
+  font-size  : 55px;
+  font-weight: 700;
+}
+
+.about h2 {
+  font-size: 30px;
+}
+
+/* end about page */
