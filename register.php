@@ -1,5 +1,91 @@
 <?php
 $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+$error_message = "";
+
+$first_name = "";
+$last_name = "";
+$email = "";
+$password = "";
+$confirm_password = "";
+$phone = "";
+$address = "";
+$age = "";
+
+if (isset($_POST['sign_up'])) {
+  $first_name = htmlentities(mysqli_real_escape_string($con, $_POST['first_name']));
+  $last_name = htmlentities(mysqli_real_escape_string($con, $_POST['last_name']));
+  $email = htmlentities(mysqli_real_escape_string($con, $_POST['email']));
+  $password = htmlentities(mysqli_real_escape_string($con, $_POST['password']));
+  $confirm_password = htmlentities(mysqli_real_escape_string($con, $_POST['confirm_password']));
+  $phone = htmlentities(mysqli_real_escape_string($con, $_POST['phone']));
+  $address = htmlentities(mysqli_real_escape_string($con, $_POST['address']));
+  $age = htmlentities(mysqli_real_escape_string($con, $_POST['age']));
+  $gender = htmlentities(mysqli_real_escape_string($con, $_POST['gender']));
+
+  // Validate first Name
+  if (!preg_match("/^[A-Za-z ]+$/", $first_name)) {
+    $error_message = "First Name should contain only letters and spaces.";
+  }
+
+  // Validate Last Name
+  if (!preg_match("/^[A-Za-z ]+$/", $last_name)) {
+    $error_message = "Last Name should contain only letters and spaces.";
+  }
+
+  // Validate Email
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $error_message = "Invalid email address.";
+  }
+
+  // Validate Password
+  if (strlen($password) < 8) {
+    $error_message = "Password should be at least 8 characters long.";
+  } elseif (!preg_match("/\d/", $password)) {
+    $error_message = "Password should contain at least one number.";
+  } elseif (!preg_match("/[A-Z]/", $password)) {
+    $error_message = "Password should contain at least one capital letter.";
+  } elseif (!preg_match("/[a-z]/", $password)) {
+    $error_message = "Password should contain at least one small letter.";
+  } elseif (!preg_match("/[^\w\d\s:]/", $password)) {
+    $error_message = "Password should contain at least one special character.";
+  }
+
+  // Validate Confirm Password
+  if ($password !== $confirm_password) {
+    $error_message = "Passwords do not match.";
+  }
+
+  // Validate Phone
+  if (!preg_match("/^(010|011|012|015)[0-9]{8}$/", $phone)) {
+    $error_message = "Invalid phone number.";
+  }
+
+  if (empty($error_message)) {
+    $check_user = "SELECT * FROM users WHERE Email='$email'";
+    $result = $con->query($check_user);
+    $check = mysqli_num_rows($result);
+    if ($check == 1) {
+      $error_message = "User is already registered.";
+    } else {
+      $insert = "INSERT INTO users(First_Name, Last_Name, Email, User_Password, Phone, User_Address, Age, Gender) VALUES ('$first_name', '$last_name','$email','$password', '$phone', '$address','$age', '$gender')";
+      $run = $con->query($insert);
+      if ($run) {
+        $first_name = "";
+        $last_name = "";
+        $email = "";
+        $password = "";
+        $confirm_password = "";
+        $phone = "";
+        $address = "";
+        $age = "";
+        header("Location: login.php");
+        exit();
+      }
+    }
+  }
+
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
