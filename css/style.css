@@ -690,6 +690,7 @@
 /* end about page */
 
 
+
 /* start reservation page */
 
 .reservation {
@@ -741,9 +742,70 @@
   transition: 0.5s;
 }
 
-.reservation a {
+/* start login page */
+
+.login {
+  background-image   : url(../image/login_img.jpg);
+  background-position: center;
+  background-size    : cover;
+  width              : 100%;
+  height             : 100vh;
+}
+
+.layer {
+  width           : 100%;
+  height          : 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  position        : relative;
+}
+
+.login_info {
+  width           : 500px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius   : 10px;
+}
+
+.login h1 {
+  position   : absolute;
+  top        : 100px;
+  color      : white;
+  font-family: 'Delicious Handrawn', cursive;
+}
+
+.login_logo {
+  width   : 65px;
+  height  : 65px;
+  position: relative;
+  left    : 220px;
+  top     : -25px;
+}
+
+.login_text {
+  color: blue;
+}
+
+.login .btn {
+  padding      : 5px 40px 5px 40px;
+  font-size    : 20px;
+  border-radius: 100px;
+}
+
+.login .btn a {
   text-decoration: none;
   color          : white;
 }
 
-/* end reservation page */
+
+.login p {
+  color     : white;
+  text-align: center;
+}
+
+.login p a {
+  text-decoration: none;
+}
+
+/* end login page */
