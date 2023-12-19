@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+  header("Location: login.php");
+  exit();
+}
+$con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -70,60 +78,34 @@
       </header>
 
       <section class="team" id="team">
-        <div class="container">
-          <h1>Our <span class="team_text">Team</span></h1>
-          <div class="row g-2 team_box">
-            <div class="col-md-3 profile">
-              <img src="image/chef1.png" alt="">
-              <div class="team_info">
-                <h2 class="name">Chef</h2>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div class="team_icon">
-                  <i class="fa-brands fa-facebook-f"></i>
-                  <i class="fa-brands fa-twitter"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 profile">
-              <img src="image/chef2.png" alt="">
-              <div class="team_info">
-                <h2 class="name">Chef</h2>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div class="team_icon">
-                  <i class="fa-brands fa-facebook-f"></i>
-                  <i class="fa-brands fa-twitter"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 profile">
-              <img src="image/chef3.jpg" alt="">
-              <div class="team_info">
-                <h2 class="name">Chef</h2>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div class="team_icon">
-                  <i class="fa-brands fa-facebook-f"></i>
-                  <i class="fa-brands fa-twitter"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 profile">
-              <img src="image/chef4.jpg" alt="">
-              <div class="team_info">
-                <h2 class="name">Chef</h2>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div class="team_icon">
-                  <i class="fa-brands fa-facebook-f"></i>
-                  <i class="fa-brands fa-twitter"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="container_team">
+        <h1>Our <span class="team_text">Team</span></h1>
+        <div class="row team_box">
+            <?php
+            $sql = "SELECT * FROM team";
+            $result = $con->query($sql);
+
+            // Display the team items
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="col-md-1 profile">';
+                    echo '<img src="' . $row['image'] . '" alt="">';
+                    echo '<div class="team_info">';
+                    echo '<h2 class="name">' . $row['name'] . '</h2>';
+                    echo '<p class="bio">' . $row['description'] . '</p>';
+                    echo '<div class="team_icon">';
+                    echo '<a href="' . $row['instagram'] . '" target ="_blank"> <i class="fa-brands fa-instagram"></i></a>';
+                    echo '<a href="' . $row['facebook'] . '" target ="_blank"> <i class="fa-brands fa-facebook-f"></i></a>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            }
+            ?>
         </div>
-      </section>
+    </div>
+</section>
+
       
       <footer class="copy_right" id="copy_right">
         <div class="container text-center pt-3">
