@@ -18,7 +18,7 @@ $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection faile
         <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
 </head>
 <body>
-        <header class="home" id="home">>
+    <header class="home" id="home">>
                 <div class="container pt-5">
                   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                     <div class="container-fluid">
@@ -52,38 +52,63 @@ $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection faile
                     </div>
                   </nav>
                 </div>
-        </header>
-        <section class="contact" id="contact_us">
-                <div class="container">
-                  <h1><span class="contact_text">Contact</span> Us</h1>
-                  <div class="row">
-                    <div class="col-md-6 contact_img">
-                      <img src="image/contact.png" class="w-100">
-                    </div>
-                    <div class="col-md-6 contact_body">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="your name">
-                          </div>
-                          <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="formGroupExampleInput" placeholder="your email">
-                          </div>
-                          <div class="mb-3">
-                            <label for="formGroupExampleInput2" class="form-label">message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="your message"
-                              rows="3"></textarea>
-                          </div>
-                          <button class="contact_btn"><a href="#">Send</a></button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    </header>
+    <section class="contact" id="contact_us">
+    <div class="container">
+      <h1><span class="contact_text">Contact</span> Us</h1>
+      <div class="row">
+        <div class="col-md-6 contact_img">
+          <img src="image/contact.png" class="w-100">
+        </div>
+        <div class="col-md-6 contact_body">
+          <div class="row">
+            <div class="col-md-12">
+              <form action="" method="post">
+                <div class="mb-3">
+                  <label for="formGroupExampleInput">Name</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" name="name"
+                    placeholder="your name">
                 </div>
-            
-        </section>
+                <div class="mb-3">
+                  <label for="formGroupExampleInput">Email</label>
+                  <input type="email" class="form-control" id="formGroupExampleInput" name="email"
+                    placeholder="your email" value="<?php $user_email = $_SESSION['email'];
+                    echo $user_email; ?>" readonly>
+                </div>
+
+                <div class="mb-3">
+                  <label for="formGroupExampleInput2">Message</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="message"
+                    placeholder="your message" rows="4"></textarea>
+                </div>
+                <button class="contact_btn" name="send">Send</button>
+                <?php
+                $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+                if (isset($_POST['send'])) {
+                  $name = htmlentities(mysqli_real_escape_string($con, $_POST['name']));
+                  $email = $_SESSION['email'];
+                  $message = htmlentities(mysqli_real_escape_string($con, $_POST['message']));
+
+                  if (strlen($name) == 0 || strlen($message) == 0) {
+                    echo "Filed can not be empty";
+                  }
+
+                  $insert_query = "INSERT INTO contactus (name, email, message, status) VALUES ('$name', '$email', '$message', 'unread')";
+                  $run_query = $con->query($insert_query);
+                  if ($run_query) {
+                    echo "correct";
+                  } else {
+                    echo "error";
+                  }
+                }
+                ?>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
         <footer class="copy_right" id="copy_right">
                 <div class="container text-center pt-3">
                   <p style="margin-top: 20px;">Copyright © 2023 All rights reserved | made by OSS Team</span></p>
