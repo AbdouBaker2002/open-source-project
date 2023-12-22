@@ -35,28 +35,72 @@ if (isset($_SESSION['email'])) {
         <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
       </head>
 <body>
-    <section class="login" id="login">
+<section class="login" id="login">
         <div class="layer">
-          <h1>Welcome to Yummy Restaurant</h1>
-          <div class="login_info">
-            <img src="image/logo.png" alt="" class="login_logo">
-            <form>
-              <div class="row p-3">
-                <div class="col-12 pb-3 pt-3">
-                  <input type="email" class="form-control" placeholder="Email" aria-label="login_email">
-                </div>
-                <div class="col-12 pb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="password_email">
-                </div>
-                <div class="col-12 text-center pb-3">
-                  <button type="submit" class="btn btn-primary"><a href="index.html">Login</a></button>
-                </div>
-                <p>Don't have account ? <a href="register.html">Signup Now</a></p>
-              </div>
-            </form>
-          </div>
+            <h1>Welcome to Yummy Restaurant</h1>
+            <div class="login_info">
+                <img src="image/logo.png" alt="" class="login_logo">
+                <form action="" method="post">
+                    <div class="row p-3">
+                        <div class="col-12 pb-3 pt-3">
+                            <input type="email" class="form-control" placeholder="Email" aria-label="login_email"
+                                name="login_email">
+                        </div>
+                        <div class="col-12 pb-3">
+                            <input type="password" class="form-control" placeholder="Password"
+                                aria-label="password_email" name="login_password">
+                        </div>
+                        <div class="col-12 text-center pb-3">
+                            <button type="submit" class="btn btn-primary" name="login">Login</button>
+                        </div>
+                        <p>Don't have an account?
+                        <form method="post">
+                            <button type="submit" class="signupgo" name="Signup">Signup Now</button>
+                        </form>
+                        <?php
+                        if (isset($_POST['Signup'])) {
+                            header("Location: register.php");
+                            exit();
+                        }
+                        ?>
+                        </p>
+
+                    </div>
+                </form>
+                <?php
+                if (isset($_POST['login'])) {
+                    $email = htmlentities(mysqli_real_escape_string($con, $_POST['login_email']));
+                    $password = htmlentities(mysqli_real_escape_string($con, $_POST['login_password']));
+
+                    $query = "SELECT * FROM users WHERE email ='$email' AND user_password = '$password'";
+                    $result = $con->query($query);
+
+                    $check_login = mysqli_num_rows($result);
+
+                    if ($check_login == 1) {
+                        $_SESSION['email'] = $email;
+                        $query1 = "SELECT Admin FROM users WHERE email = '$email';";
+                        $result1 = $con->query($query1);
+                        $row =  $result1->fetch_assoc();
+                        $check =$row['Admin'];
+                        if ($check == 1) {
+                            header("Location:dashboard.php");
+                            exit();
+                        } else {
+                            header("Location:home.php");
+                            exit();
+                        }
+
+
+                    } else {
+                        echo '<p style="background-color: red; text-align: center; color: white;">email or password is incorrect</p>';
+
+                    }
+                }
+                ?>
+            </div>
         </div>
-      </section>
+    </section>
     
 </body>
 </html>
