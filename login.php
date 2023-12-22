@@ -104,3 +104,9 @@ if (isset($_SESSION['email'])) {
     
 </body>
 </html>
+
+/*
+1.manage form and save data for email and password 
+2.build connection with DB and check the Admin user 
+3.manage session using email (admin or user) 
+*/ 
