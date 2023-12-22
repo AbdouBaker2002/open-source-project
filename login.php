@@ -1,3 +1,23 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+session_start();
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    $query2 = "SELECT Admin FROM users WHERE email = '$email';";
+    $result2 = $con->query($query2);
+    $row =  $result2->fetch_assoc();
+    $check =$row['Admin'];
+    if ($check == 1) {
+        header("Location:dashboard.php");
+        exit();
+    } else {
+        header("Location:home.php");
+        exit();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
