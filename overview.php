@@ -43,7 +43,19 @@
       <div class="row g-3 gallary_image_box">
         <?php
         $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+        $sql = "SELECT * FROM menu LIMIT 6";
+        $result = $con->query($sql);
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo '<div class="col-md-4 gallary_image">';
+            echo '<img src="' . $row['image_url'] . '" alt="' . $row['name'] . '">';
 
+            echo '</div>';
+          }
+        }
+        else{
+          echo'no gallary';
+        }
         ?>
       </div>
       <br>
