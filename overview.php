@@ -62,7 +62,15 @@
       <h5>To order your favorite foods, please login</h5>
       <br>
       <div class="text-center">
-        <button type="submit" class="btn btn-primary"><a href="login.html">Login</a></button>
+        <form method="post">
+          <button type="submit" class="btn btn-primary" name="login">Login</button>
+        </form>
+        <?php
+        if (isset($_POST['login'])) {
+          header("Location: login.php");
+          exit();
+        }
+        ?>
       </div>
     </div>
 
