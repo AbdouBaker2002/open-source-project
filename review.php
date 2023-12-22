@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['email'])) {
+  header("Location: login.php");
+  exit();
+}
 $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
 
 
