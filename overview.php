@@ -41,48 +41,9 @@
     <div class="container">
       <h1>Menu<span class="gallary_text"> overview</span></h1>
       <div class="row g-3 gallary_image_box">
-        <div class="col-md-4 gallary_image">
-          <img src="image/gallary_1.jpg" alt="">
-          <h3>Food</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
-          </p>
-        </div>
-        <div class="col-md-4 gallary_image">
-          <img src="image/gallary_2.jpg" alt="">
-          <h3>Food</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
-          </p>
-        </div>
-        <div class="col-md-4 gallary_image">
-          <img src="image/gallary_3.jpg" alt="">
-          <h3>Food</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
-          </p>
-        </div>
-        <div class="col-md-4 gallary_image">
-          <img src="image/gallary_4.jpg" alt="">
-          <h3>Food</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
-          </p>
-        </div>
-        <div class="col-md-4 gallary_image">
-          <img src="image/gallary_5.jpg" alt="">
-          <h3>Food</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
-          </p>
-        </div>
-        <div class="col-md-4 gallary_image">
-          <img src="image/gallary_6.jpg" alt="">
-          <h3>Food</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam
-          </p>
-        </div>
+        <?php
+        $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+        ?>
       </div>
       <br>
       <h5>To order your favorite foods, please login</h5>
