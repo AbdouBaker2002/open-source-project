@@ -36,12 +36,14 @@
   <!-- end welcome page -->
 
   <!-- start gallary page -->
+  <!-- mysqli_connect -->
 
   <section class="gallary" id="gallary">
     <div class="container">
       <h1>Menu<span class="gallary_text"> overview</span></h1>
       <div class="row g-3 gallary_image_box">
         <?php
+        
         $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
         $sql = "SELECT * FROM menu LIMIT 6";
         $result = $con->query($sql);
