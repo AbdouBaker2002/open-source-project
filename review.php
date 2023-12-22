@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+  header("Location: login.php");
+  exit();
+}
+$con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -183,6 +193,44 @@
             </div>
         
           </section>
+          <section class="review" id="review">
+    <div class="container">
+      <h1>Customer <span class="review_text">Review</span></h1>
+      <div class="row row-cols-1 row-cols-md-4 g-2 text-center review_box">
+        <?php
+        $sql = "SELECT * FROM reviews";
+        $result = $con->query($sql);
+
+        // Display the menu items
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+          echo '<div class="col">';
+          echo '<div class="card p-3 shadow-lg">';
+          echo '<div class="review_img">';
+          echo '<img src="' . $row['image'] . '" class="rounded-circle w-75" alt="' . $row['name'] . ' width="200" height="200">';
+          echo '</div>';
+          echo '<div class="card-body">';
+          echo '<h2 class="name" style="transition: 0.3s;">' . $row['name'] . '</h2>';
+          echo '<div class="review_social">';
+          echo ' <a href="' . $row['facebook'] . '" target ="_blank"><i class="fa-brands fa-facebook-f"></i></a>';
+          echo ' <a href="' . $row['instagram'] . '" target ="_blank"><i class="fa-brands fa-instagram"></i></a>';
+          echo '<a href="' . $row['twitter'] . '" target ="_blank"><i class="fa-brands fa-twitter"></i></a>';
+          echo '</div>';
+          echo '<br><br>';
+          echo '<p>' . $row['description'] . '</p>';
+          echo '</div>';
+          echo '</div>';
+          echo '</div>';
+        }
+      }
+        ?>
+
+      </div>
+
+
+    </div>
+
+  </section>
           
           <footer class="copy_right" id="copy_right">
             <div class="container text-center pt-3">
