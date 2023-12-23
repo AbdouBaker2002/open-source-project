@@ -1,3 +1,7 @@
+<?php
+
+$con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
