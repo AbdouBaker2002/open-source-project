@@ -19,11 +19,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="card" id="card">
+<section class="card" id="card">
     <div class="container">
     <a href="home.php"> <img src="image/logo.png" class="logo_card"></a>
         <a href="cart.php"><i class="icon_card fa-solid fa-cart-shopping"></i></a>
         <h1>Confirmed <span class="card_text">Orders</span></h1>
+        <div class="row">
+
+            <?php
+            $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+
+            $order_email = $_SESSION['email'];
+
+            $sql = "SELECT * FROM orders WHERE order_email='$order_email' AND order_status='confirmed'";
+            $result = $con->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="col-md-10 shadow-lg card_body mt-5 p-3">';
+                    echo '<div class="row">';
+                    echo '<div class="col-md-3">';
+                    echo '<img src="' . $row['order_image'] . '" class="rounded-circle " style="width: 50%;">';
+                    echo ' </div>';
+                    echo '<div class="col-md-3">';
+                    echo '<h1>' . $row['order_name'] . '</h1>';
+                    echo '</div>';
+                    echo '<div class="col-md-3 text-center">';
+                    echo '<h5>number: ' . $row['order_number'] . '</h5>';
+                    echo '<h5>Price: ' . $row['order_price'] . '$</h5>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    //$id = $row['id'];
+                }
+            } else {
+                echo "no orders";
+                echo'<br><br>';
+            }
+            ?>
+        </div>
+        <br>
+        <br>
     </div>
 </section>
 <footer class="copy_right" id="copy_right">
