@@ -1,6 +1,6 @@
-# open-source-project [YAMY]
+# open-source-project [YUMMY]
 
-The [YAMY] is a web application that allows users to order meals online. The platform showcases a variety of dishes,
+The [YUMMY] is a web application that allows users to order meals online. The platform showcases a variety of dishes,
 and users can easily make selections and proceed with the purchase. 
 The primary aim is to provide a user-friendly interface for ordering meals conveniently.
 
@@ -18,7 +18,7 @@ The primary aim is to provide a user-friendly interface for ordering meals conve
 
 ## Introduction
 
-Welcome to [YAMY], a cutting-edge web application designed to revolutionize the way you order and enjoy your favorite meals.
+Welcome to [YUMMY], a cutting-edge web application designed to revolutionize the way you order and enjoy your favorite meals.
 In a world where convenience is key, our platform provides a seamless and user-friendly experience for food enthusiasts to explore, 
 customize, and order meals from the comfort of their homes.
 
