@@ -58,5 +58,22 @@
           </div>
         </div>
       </header>
+      <section class="submit_review">
+        <div class="container">
+            <a href="dashboard.php"> <img src="image/logo.png" class="logo_card"></a>
+            <h1>Submit Your Review</h1>
+            <form method="post" action="">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Review Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
