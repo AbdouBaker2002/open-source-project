@@ -4,9 +4,7 @@ if (!isset($_SESSION['email'])) {
   header("Location: login.php");
   exit();
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +23,10 @@ if (!isset($_SESSION['email'])) {
     <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<section class="contact_messages">
+
+    <section class="contact_messages">
         <div class="container">
             <a href="dashboard.php"> <img src="image/logo.png" class="logo_card"></a>
             <h1>Contact <span class="contact-text">Messages</span></h1>
