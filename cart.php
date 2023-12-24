@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <section class="card" id="card">
+    <section class="card"   id="card">
         <div class="container">
             <a href="home.php"> <img src="image/logo.png" class="logo_card"></a>
             <a href="confirmed.php"><i class="icon_card fa-solid fa-circle-check"></i></a>
