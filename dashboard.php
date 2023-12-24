@@ -81,6 +81,37 @@
           </div>
 
         </div>
+        
+          <?php
+          if (isset($_POST['home'])) {
+            header("Location: home.php");
+          }
+
+          if (isset($_POST['logout'])) {
+            session_destroy();
+            header("Location: login.php");
+            exit();
+          }
+
+
+          if (isset($_POST['contact'])) {
+            header("Location: contact_display.php");
+            exit();
+          }
+          if (isset($_POST['reservation'])) {
+            header("Location: reservations_display.php");
+            exit();
+          }
+          if (isset($_POST['orders'])) {
+            header("Location: orders_display.php");
+            exit();
+          }
+          if (isset($_POST['menu'])) {
+            header("Location: menu_display.php");
+            exit();
+          }
+
+          ?>
       </form>
 
     </div>
