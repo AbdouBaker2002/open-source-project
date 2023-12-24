@@ -58,49 +58,58 @@ $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection faile
   </header>
   <section class="reservation" id="reservation">
     <div class="container">
-      <h1>Reservation <span class="reservation_text">form</span></h1>
+      <h1 class="reservation_text">Reservation</h1>
       <div class="row">
         <div class="col-md-6">
-          <img src="image/order_image.png" class="w-75">
+          <img src="image/order_image.png" class="w-100">
         </div>
         <div class="col-md-6 reservation_body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Email</label>
-                <input type="email" class="form-control" id="formGroupExampleInput" placeholder="your email">
+          <form action="" method="post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="your email" value="<?php $user_email = $_SESSION['email'];
+                  echo $user_email; ?>" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="time" class="form-label">Time</label>
+                  <select class="form-control form-select" id="time" name="time">
+                    <option selected disabled>Choose your time</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                    <option value="19:00">7:00 PM</option>
+                    <option value="20:00">8:00 PM</option>
+                    <option value="21:00">9:00 PM</option>
+                    <option value="22:00">10:00 PM</option>
+                  </select>
+                </div>
+                <button class="reservation_btn" name="reservation">Reservation</button>
               </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Time</label>
-                <select class="form-control form-select mb-3">
-                  <option selected>Choose your time</option>
-                  <option value="1">5pm</option>
-                  <option value="2">6pm</option>
-                  <option value="3">7pm</option>
-                  <option value="4">8pm</option>
-                  <option value="5">9pm</option>
-                  <option value="6">10pm</option>
-                </select>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="date" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+                </div>
+                <div class="mb-3">
+                  <label for="number" class="form-label">Number of individuals</label>
+                  <input type="number" class="form-control" id="number" name="number" placeholder="Number" min="1">
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Date</label>
-                <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Date">
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Number of individuals</label>
-                <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Number">
-              </div>
-            </div>
-            <div class="col-md-3">
-              <button class="reservation_btn"><a href="#">reservation</a></button>
-            </div>
-          </div>
+            <?php
+            if (isset($_POST['reservation'])) {
+              $email = $_SESSION['email'];
+              $time = $_POST['time'];
+              $date = $_POST['date'];
+              $number = $_POST['number'];
+
+
+            ?>
+          </form>
         </div>
       </div>
     </div>
-
   </section>
 
   <footer class="copy_right" id="copy_right">
