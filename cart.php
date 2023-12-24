@@ -45,7 +45,7 @@
                         echo '</div>';
                         echo '<div class="col-md-3 text-center">';
                         echo '<h5>number: ' . $row['order_number'] . '</h5>';
-                        echo '<h5>Price: ' . $row['order_price'] . '$</h5>';
+                        echo '<h5>Price   : ' . $row['order_price'] . '$</h5>';
                         echo '</div>';
                         echo '<div class="col-md-3 text-center">';
                         echo '<form method="post">';
