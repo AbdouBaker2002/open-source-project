@@ -53,10 +53,8 @@ Provide step-by-step instructions on how to get the project up and running on a 
 
 
 ### Installation
-Explain how to install any necessary dependencies.
--
-
 Explain how to install project
+-
 
 ```bash
 # Open your terminal and run the following command to clone the repository:
