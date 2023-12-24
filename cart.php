@@ -62,7 +62,7 @@
                     echo "no orders";
 
                 }
-
+//add some commend
                 if (isset($_POST['delete'])) {
                     $food_id = $_POST['id'];
                     $sql1 = "DELETE FROM orders WHERE id = '$food_id'";
