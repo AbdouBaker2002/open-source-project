@@ -104,7 +104,30 @@ $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection faile
               $date = $_POST['date'];
               $number = $_POST['number'];
 
-
+              // Perform your validation and further processing here
+            
+              // Example validation: Check if all fields are filled
+              if (empty($time) || empty($date) || empty($number)) {
+                echo "Please fill in all fields.";
+              } else {
+                $selectedDate = strtotime($date);
+                $currentDate = strtotime(date("Y-m-d"));
+                if ($selectedDate < $currentDate) {
+                  echo "Please select a valid future date.";
+                } else {
+                  // Perform your desired actions here with the validated values
+                  // For example, you can store them in a database or send an email
+                  $insert_query = "INSERT INTO reservations (email, time, date, number_of_individuals,status) 
+                                 VALUES ('$email', '$time', '$date', $number,'not ready')";
+                  $result = $con->query($insert_query);
+                  if ($result) {
+                    echo "Reservation successful. Thank you!";
+                  } else {
+                    echo "Error: " . mysqli_error($con);
+                  }
+                }
+              }
+            }
             ?>
           </form>
         </div>
