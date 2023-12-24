@@ -1,0 +1,80 @@
+.Reservation_admin h1 {
+    font-size     : 60px;
+    font-weight   : 500px;
+    padding-bottom: 50px;
+    text-align    : center;
+    color: #fac031;
+  
+  }
+  
+  .orders .contact-text {
+    font-size  : 55px;
+    font-weight: 700px;
+    font-family: 'Alkatra', cursive;
+    color      : #fac031;
+    position   : relative;
+  }
+  
+  .orders.orders-text::after {
+    content         : "";
+    width           : 210px;
+    height          : 2px;
+    background-color: #fac031;
+    position        : absolute;
+    top             : 85%;
+    left            : 10px;
+  }
+  
+  .orders h1 {
+    font-size     : 60px;
+    font-weight   : 500px;
+    padding-bottom: 50px;
+    text-align    : center;
+  
+  }
+  
+  .orders h4{
+    color: #fac031;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  
+  .menu_food .menu_food_text {
+    font-size  : 55px;
+    font-weight: 700px;
+    font-family: 'Alkatra', cursive;
+    color      : #fac031;
+    position   : relative;
+  }
+  
+  .menu_food .menu_food_text::after {
+    content         : "";
+    width           : 100px;
+    height          : 2px;
+    background-color: #fac031;
+    position        : absolute;
+    top             : 85%;
+    left            : 5px;
+  }
+  
+  .menu_food h1 {
+    font-size     : 60px;
+    font-weight   : 500px;
+    padding-bottom: 50px;
+    text-align    : center;
+  }
+  
+  .menu_food_button{
+    border: transparent;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+  position: relative;
+  }
+  
+  .Reservation_admin h4{
+    color: #fac031;
+    text-align: center;
+    padding-bottom: 20px;
+  }
