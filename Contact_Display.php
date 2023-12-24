@@ -26,7 +26,7 @@ if (!isset($_SESSION['email'])) {
     <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="contact_messages">
+<section class="contact_messages">
         <div class="container">
             <a href="dashboard.php"> <img src="image/logo.png" class="logo_card"></a>
             <h1>Contact <span class="contact-text">Messages</span></h1>
@@ -41,10 +41,52 @@ if (!isset($_SESSION['email'])) {
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-            </tbody>
-        </table>
-        </form>
-        <h4 class="pt-5"><span style="color: black;">readed</span> contact messages</h4>
+
+                <tbody>
+                    <?php
+                    $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+                    $sql = "SELECT * FROM contactus WHERE status = 'unread' ORDER BY email";
+                    $result = $con->query($sql);
+
+                    // Display the menu items
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+
+                            echo '<tr>';
+                            echo '<th scope="row">' . $row['name'] . '</th>';
+                            echo '<td>' . $row['email'] . '</td>';
+                            echo '<td>' . $row['message'] . '</td>';
+                            echo '<td><button class="btn btn-primary">' . $row['status'] . '</button></td>';
+                            echo '<td>';
+                            echo '<form method="post">';
+                            echo '<input type="hidden" name="id" value="' . $row['id'] . '">'; // Add this line to pass the ID value
+                            echo '<button name = "update""><i class="fa-solid fa-check true_icon"></i></button>';
+                            echo '<button  type="submit" name="delete">
+                        <i class="delete fa-solid fa-trash-can"></i>
+                    </button>';
+                            echo '</form>';
+                            echo '</td>';
+                            echo '</tr>';
+                            $id = $row['id'];
+                        }
+                    }
+                    if (isset($_POST['delete'])) {
+                        $message_id = $_POST['id'];
+                        $sql1 = "DELETE FROM contactus WHERE id = '$message_id'";
+                        $result1 = $con->query($sql1);
+                    }
+                    if (isset($_POST['update'])) {
+                        $message_id = $_POST['id'];
+                        $sql1 = "UPDATE contactus
+                        SET status = 'readed'
+                        WHERE id = '$message_id';";
+                        $result1 = $con->query($sql1);
+                    }
+                    ?>
+                </tbody>
+            </table>
+            </form>
+            <h4 class="pt-5"><span style="color: black;">readed</span> contact messages</h4>
         <table class="table table-dark table-striped text-center">
             <thead>
                 <tr>
