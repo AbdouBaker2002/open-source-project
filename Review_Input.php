@@ -1,3 +1,21 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+if(isset($_POST['submit'])){
+    $email = $_POST['email']; 
+    $message = $_POST['message']; 
+    $con = mysqli_connect("localhost", "root", "", "yummy") or die("connection failed");
+    $stmt = $con->prepare("INSERT INTO review (email, message) VALUES (?, ?)");
+    $stmt->bind_param("ss", $email, $message);
+    $stmt->execute();
+    $stmt->close();
+    $con->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
